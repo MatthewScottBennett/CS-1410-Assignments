@@ -94,8 +94,6 @@ def applyAction(index, action):
     else:
         print('Invalid Input')
 
-    return
-
 
 def main():
     index = createIndex()
