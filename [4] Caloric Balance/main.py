@@ -91,12 +91,12 @@ def applyAction(caloric_bal, action):
 
 
 def main():
-    createCaloricBalance()
+    caloric_bal = createCaloricBalance()
     while True:
         for item in formatMenu():
             print(item)
         action = getUserString(formatMenuPrompt())
-        applyAction(caloric_balance, action)
+        applyAction(caloric_bal, action)
 
 
 if __name__ == '__main__':
