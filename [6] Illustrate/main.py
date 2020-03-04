@@ -1,11 +1,11 @@
 import pygame
 import game
 # YOU SHOULD CHANGE THIS TO IMPORT YOUR GAME MODULE
-import example
+import illustrate
 
 # YOU SHOULD CONFIGURE THESE TO MATCH YOUR GAME
 # window title bar text
-TITLE = "EXAMPLE"
+TITLE = "Illustrate"
 # pixels width
 WINDOW_WIDTH  = 700
 # pixels high
@@ -21,7 +21,7 @@ class PygameApp( game.Game ):
         
         # create a game instance
         # YOU SHOULD CHANGE THIS TO IMPORT YOUR GAME MODULE
-        self.mGame = example.Example( width, height )
+        self.mGame = illustrate.Illustrate( width, height )
         return
         
         
