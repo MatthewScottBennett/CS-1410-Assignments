@@ -1,6 +1,3 @@
-#
-# You should not need to edit this file.
-#
 import pygame
 import pygame.locals
 
