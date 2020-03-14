@@ -3,15 +3,18 @@ import game
 import frogger
 
 TITLE = "Frogger"
-WINDOW_WIDTH  = 700
-WINDOW_HEIGHT = 600
+CELL_SIZE = 50
+ROWS = 11
+COLUMNS = 19
+WINDOW_WIDTH  = COLUMNS*CELL_SIZE
+WINDOW_HEIGHT = ROWS*CELL_SIZE
 DESIRED_RATE  = 30
 
 class PygameApp( game.Game ):
 
     def __init__( self, title, width, height, frame_rate ):
         super().__init__( title, width, height, frame_rate )
-        self.game = frogger.Frogger( width, height )
+        self.game = frogger.Frogger( width, height, CELL_SIZE, ROWS, COLUMNS )
         
         
     def game_logic( self, keys, newkeys, buttons, newbuttons, mouse_position, dt ):
