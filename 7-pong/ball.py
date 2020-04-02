@@ -1,7 +1,7 @@
 # http://cit.dixie.edu/cs/1410/labs/pong.php
 
 class Ball:
-    def __init__(self, size, min_x, min_y, max_x, max_y, left_paddle_x, right_paddle_x):
+    def __init__(self, size, min_x, max_x, min_y, max_y, left_paddle_x, right_paddle_x):
         self.x = min_x
         self.y = min_y
         self.size = size
@@ -80,14 +80,11 @@ class Ball:
 
 
     def setPosition(self, x, y):
-        if x < self.max_x and x > self.min_x:
-            self.x = x
-            return True
-        if y < self.max_y and y > self.min_y:
-            self.y = y
-            return True
+        if (x >= self.min_x) and (x+self.size <= self.max_x) and (y >= self.min_y) and (y+self.size <= self.max_y): 
+           self.x = x
+           self.y = y
+           return True
         return False
-
 
     def setSpeed(self, dx, dy):
         self.dx = dx
@@ -95,10 +92,7 @@ class Ball:
 
 
     def setLeftPaddleY(self, paddle_min_y, paddle_max_y):
-        if paddle_min_y < paddle_min_y:
-           if paddle_min_y > self.min_y and paddle_max_y < self.max_y:
-               self.left_paddle_max_y = paddle_max_y
-               self.left_paddle_min_y = paddle_min_y 
+        return
 
 
     def setRightPaddleY(self, paddle_min_y, paddle_max_y):
