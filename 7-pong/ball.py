@@ -159,7 +159,16 @@ class Ball:
 
 
     def move(self, dt):
-        return
+        new_x = self.x * (self.dx * dt)
+        new_y = self.y * (self.dy * dt)
+        new_y = self.checkTop(new_y)
+        new_y = self.checkBottom(new_y)
+        new_x = self.checkLeftPaddle(new_x, new_y)
+        new_x = self.checkRightPaddle(new_x, new_y)
+        new_x = self.checkLeft(new_x)
+        new_x = self.checkRight(new_x)
+        self.x = new_x
+        self.y = new_y
 
 
     def serveLeft(self, x, min_y, max_y, min_dx, max_dx, min_dy, max_dy):
