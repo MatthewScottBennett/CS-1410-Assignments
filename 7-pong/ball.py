@@ -1,6 +1,7 @@
 # http://cit.dixie.edu/cs/1410/labs/pong.php
 
 import pygame
+import random
 
 class Ball:
     def __init__(self, size, min_x, max_x, min_y, max_y, left_paddle_x, right_paddle_x):
@@ -159,24 +160,41 @@ class Ball:
 
 
     def move(self, dt):
-        new_x = self.x * (self.dx * dt)
-        new_y = self.y * (self.dy * dt)
+        # Calculates the new X and Y Position
+        new_x = self.x + (dt * self.dx)
+        new_y = self.y + (dt * self.dy)
+        # Checks if the positions are valid, if not change them
         new_y = self.checkTop(new_y)
         new_y = self.checkBottom(new_y)
-        new_x = self.checkLeftPaddle(new_x, new_y)
-        new_x = self.checkRightPaddle(new_x, new_y)
         new_x = self.checkLeft(new_x)
         new_x = self.checkRight(new_x)
+        new_x = self.checkRightPaddle(new_x, new_y)
+        new_x = self.checkLeftPaddle(new_x, new_y)
+        # Updates the X and Y value of the ball
         self.x = new_x
         self.y = new_y
 
 
     def serveLeft(self, x, min_y, max_y, min_dx, max_dx, min_dy, max_dy):
-        return
+        # Calculates new Y, DeltaX, and DeltaY value.
+        y = random.uniform(min_y, max_y)
+        dx = random.uniform(min_dx, max_dx)
+        dy = random.uniform(min_dy, max_dy)
+        
+        self.setPosition(x, y)
+        self.dx = dx
+        self.dy = dy
 
     
     def serveRight(self, x, min_y, max_y, min_dx, max_dx, min_dy, max_dy):
-        return
+        # Calculates new Y, DeltaX, and DeltaY value.
+        y = random.uniform(min_y, max_y)
+        dx = random.uniform(-min_dx, -max_dx)
+        dy = random.uniform(min_dy, max_dy)
+        
+        self.setPosition(x, y)
+        self.dx = dx
+        self.dy = dy
 
 
     def draw(self, surface):
