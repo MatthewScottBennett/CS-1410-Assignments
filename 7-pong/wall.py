@@ -34,4 +34,4 @@ class Wall:
     
     def draw(self, surface):
         r = pygame.Rect(self.x, self.y, self.width, self.height)
-        pygame.draw.rect(surface, (0,0,0), r)
+        pygame.draw.rect(surface, (255,255,255), r)
